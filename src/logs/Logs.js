@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState,useEffect} from 'react';
 
-const logs = () => {
+const Logs = () => {
     const [logs, setLogs] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -10,7 +10,7 @@ const logs = () => {
     const getLogs = async () => {
         setLoading(true);
         const res = await fetch('/logs');
-        const data = res.json();
+        const data = await res.json();
         setLogs(data);
         setLoading(false);
     }
@@ -24,9 +24,13 @@ const logs = () => {
             <li className='collection-header'>
                 <h4 className='center'>System Logs</h4>
             </li>
-             {!loading && logs.length === 0 ? (<p className='center'>No logs to show...</p>)}
+             {!loading && logs.length === 0 ? (<p className='center'>No logs to show...</p>) : (
+                 logs.map(log => 
+                 <li>{log.message}</li>
+                 )
+             )}
         </ul>
     )
 }
 
-export default logs
+export default Logs;
