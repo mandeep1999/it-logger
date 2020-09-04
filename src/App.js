@@ -4,8 +4,11 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import './App.css';
 import AddBtn from './components/layout/AddBtn';
 import SearchBar from './components/layout/SearchBar';
-import Logs from './logs/Logs';
-import AddLogModel from './logs/AddLogModal';
+import Logs from './components/logs/Logs';
+import AddLogModel from './components/logs/AddLogModal';
+import EditLogModel from './components/logs/EditLogModal';
+import AddTechModal from './components/techs/AddTechModal';
+import TechListModal from './components/techs/TechListModal';
 function App() {
   useEffect(() => {
     //initalialize materialize js
@@ -16,6 +19,9 @@ function App() {
       <SearchBar />
       <AddBtn />
       <AddLogModel />
+      <EditLogModel />
+      <AddTechModal />
+      <TechListModal />
       <Logs />
     </Fragment>
   );
